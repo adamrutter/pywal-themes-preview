@@ -1,0 +1,32 @@
+.hero {
+  background-color: var(--gray-dark);
+  color: white;
+  padding: 15vh 0;
+
+  h1 {
+    font-size: 3rem;
+    line-height: 1;
+    text-align: center;
+
+    .cursor {
+      background: white;
+    }
+  }
+
+  p {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 29em;
+  }
+
+  .link-icon {
+    font-size: 1.1em;
+    margin-right: 0.4em;
+    opacity: 0.8;
+    overflow: visible;
+
+    &.align {
+      vertical-align: -0.2em;
+    }
+  }
+}

@@ -1,0 +1,124 @@
+$colors: (
+  "background": var(--background),
+  "foreground": var(--foreground),
+  "cursor": var(--cursor),
+  "color0": var(--color0),
+  "color1": var(--color1),
+  "color2": var(--color2),
+  "color3": var(--color3),
+  "color4": var(--color4),
+  "color5": var(--color5),
+  "color6": var(--color6),
+  "color7": var(--color7),
+  "color8": var(--color8),
+  "color9": var(--color9),
+  "color10": var(--color10),
+  "color11": var(--color11),
+  "color12": var(--color12),
+  "color13": var(--color13),
+  "color14": var(--color14),
+  "color15": var(--color15),
+);
+
+@each $color, $css_variable in $colors {
+  [class~="term_fg_#{$color}"] {
+    color: $css_variable;
+  }
+
+  [class~="term_bg_#{$color}"] {
+    background: $css_variable;
+  }
+}
+
+.terminal {
+  border: 1px solid hsla(0, 0%, 100%, 0.5);
+  border-radius: 8px 8px 2px 2px;
+  margin-bottom: 0;
+  overflow-x: hidden;
+  padding: 2em;
+
+  code {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
+  }
+
+  .color_blocks {
+    $col_max_width: 2.5em;
+
+    height: 4em;
+    max-width: $col_max_width * 8;
+    width: 100%;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      height: 50%;
+      width: 100%;
+    }
+
+    &::before {
+      background-image: linear-gradient(
+        to right,
+        var(--background) 0% 12.5%,
+        var(--color1) 12.5% 25%,
+        var(--color2) 25% 37.5%,
+        var(--color3) 37.5% 50%,
+        var(--color4) 50% 62.5%,
+        var(--color5) 62.5% 75%,
+        var(--color6) 75% 87.5%,
+        var(--foreground) 87.5% 100%
+      );
+    }
+
+    &::after {
+      background-image: linear-gradient(
+        to right,
+        var(--color8) 0% 12.5%,
+        var(--color9) 12.5% 25%,
+        var(--color10) 25% 37.5%,
+        var(--color11) 37.5% 50%,
+        var(--color12) 50% 62.5%,
+        var(--color13) 62.5% 75%,
+        var(--color14) 75% 87.5%,
+        var(--color15) 87.5% 100%
+      );
+    }
+  }
+
+  .ls {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, auto);
+    word-break: normal;
+
+    @media screen and (min-width: 450px) {
+      grid-template-rows: repeat(2, auto);
+    }
+
+    @media screen and (min-width: 800px) {
+      grid-template-rows: repeat(1, auto);
+    }
+
+    @media screen and (min-width: 1200px) {
+      display: block;
+    }
+
+    div {
+      display: inline-block;
+      margin-right: 1em;
+    }
+  }
+
+  .cursor {
+    background: var(--cursor);
+    color: var(--background);
+  }
+
+  ::selection {
+    background: var(--foreground);
+    color: var(--background);
+  }
+}
