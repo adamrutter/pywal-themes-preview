@@ -7,6 +7,7 @@ import {
   Navbar,
 } from "react-bootstrap"
 import { FilterContext } from "../../contexts/FilterContext"
+import { LayoutContext } from "../../contexts/LayoutContext"
 import { Front, Grid, Search, ViewStacked } from "react-bootstrap-icons"
 import { useDebounce } from "use-debounce"
 import classNames from "classnames"
@@ -32,7 +33,10 @@ const Navigation = () => {
     setFilter(debounceValue)
   })
 
-  const grid = true
+  // Change layout of preview terminals
+  const { grid, setGrid } = useContext(LayoutContext)
+
+  // const grid = true
 
   return (
     <Navbar
@@ -95,6 +99,7 @@ const Navigation = () => {
           </InputGroup>
           <Button
             className={classNames("ml-3", "text-white", styles.layoutButton)}
+            onClick={() => setGrid(!grid)}
             size="sm"
             variant="secondary"
           >

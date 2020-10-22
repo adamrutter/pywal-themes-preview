@@ -1,5 +1,6 @@
 import { Alert, Container } from "react-bootstrap"
 import { FilterContext } from "../../contexts/FilterContext"
+import { LayoutContext } from "../../contexts/LayoutContext"
 import { useStaticQuery, graphql } from "gatsby"
 import classNames from "classnames"
 import Preview from "../Preview"
@@ -126,7 +127,7 @@ const PreviewList = () => {
     }
   }, [regex])
 
-  const grid = true
+  const { grid } = useContext(LayoutContext)
   const layout = grid
     ? {
         "--columns": "auto-fill",
