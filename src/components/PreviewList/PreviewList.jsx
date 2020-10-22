@@ -126,8 +126,19 @@ const PreviewList = () => {
     }
   }, [regex])
 
+  const grid = true
+  const layout = grid
+    ? {
+        "--columns": "auto-fill",
+        "--width": "550px",
+      }
+    : {
+        "--columns": "1",
+        "--width": "var(--breakpoint-md)",
+      }
+
   return (
-    <div>
+    <div style={layout}>
       <noscript>
         <Alert className={classNames("mb-5")} variant="warning">
           <h2 className={classNames("h4", "mb-1")}>JavaScript not enabled</h2>
@@ -142,7 +153,10 @@ const PreviewList = () => {
         </Alert>
       ) : (
         Object.keys(filteredThemes).map(category => (
-          <div className={classNames("my-4")} key={category}>
+          <div
+            className={classNames("mb-5", "px-2", styles.previewsContainer)}
+            key={category}
+          >
             <h2 className={classNames("h1", "mb-4")} id={category}>
               {category.charAt(0).toUpperCase() + category.slice(1)}
             </h2>
