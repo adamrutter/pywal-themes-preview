@@ -1,9 +1,17 @@
-import { Container, Form, InputGroup, Nav, Navbar } from "react-bootstrap"
-import { FilterContext } from "../contexts/FilterContext"
-import { Front, Search } from "react-bootstrap-icons"
+import {
+  Button,
+  Container,
+  Form,
+  InputGroup,
+  Nav,
+  Navbar,
+} from "react-bootstrap"
+import { FilterContext } from "../../contexts/FilterContext"
+import { Front, Grid, Search, ViewStacked } from "react-bootstrap-icons"
 import { useDebounce } from "use-debounce"
 import classNames from "classnames"
 import React, { useContext, useEffect, useState } from "react"
+import styles from "./Navbar.module.scss"
 
 const Navigation = () => {
   /* Performantly set filter value (text input would lag if filter set 
@@ -23,6 +31,8 @@ const Navigation = () => {
   useEffect(() => {
     setFilter(debounceValue)
   })
+
+  const grid = true
 
   return (
     <Navbar
@@ -64,6 +74,7 @@ const Navigation = () => {
             aria-controls="basic-navbar-nav"
             className={classNames("mr-3", "p-0")}
           />
+
           <InputGroup
             className={classNames("ml-auto")}
             size="sm"
@@ -82,6 +93,25 @@ const Navigation = () => {
               placeholder="Filter (supports regex)"
             />
           </InputGroup>
+          <Button
+            className={classNames("ml-3", "text-white", styles.layoutButton)}
+            size="sm"
+            variant="secondary"
+          >
+            {grid ? (
+              <>
+                <ViewStacked
+                  className={classNames("mr-1", styles.buttonIcon)}
+                />
+                Stack
+              </>
+            ) : (
+              <>
+                <Grid className={classNames("mr-1", styles.buttonIcon)} />
+                Tile
+              </>
+            )}
+          </Button>
         </div>
       </Container>
     </Navbar>

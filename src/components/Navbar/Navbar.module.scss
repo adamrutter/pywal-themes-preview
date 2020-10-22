@@ -1,0 +1,12 @@
+.layout-button {
+  // Bootstrap md breakpoint
+  @media only screen and (max-width: 768px) {
+    // Layout is the same on small screen, so no need to show the button
+    display: none;
+  }
+
+  .button-icon {
+    overflow: visible;
+    vertical-align: -0.125em;
+  }
+}
