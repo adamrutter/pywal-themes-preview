@@ -30,9 +30,26 @@ $colors: (
   }
 }
 
+.preview {
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    // Bootstrap md breakpoint
+    // Wrapping h3 will misalign grid
+    @media only screen and (min-width: 768px) {
+      white-space: nowrap;
+    }
+  }
+}
+
 .terminal {
   border: 1px solid hsla(0, 0%, 100%, 0.5);
   border-radius: 8px 8px 2px 2px;
+  flex-grow: 1;
   margin-bottom: 0;
   overflow-x: hidden;
   padding: 2em;
@@ -94,16 +111,13 @@ $colors: (
     grid-template-rows: repeat(3, auto);
     word-break: normal;
 
-    @media screen and (min-width: 450px) {
+    @media only screen and (min-width: 550px) {
       grid-template-rows: repeat(2, auto);
     }
 
-    @media screen and (min-width: 800px) {
+    @media only screen and (min-width: 625px) {
+      grid-auto-columns: min-content;
       grid-template-rows: repeat(1, auto);
-    }
-
-    @media screen and (min-width: 1200px) {
-      display: block;
     }
 
     div {

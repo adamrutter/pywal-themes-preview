@@ -10,7 +10,7 @@ const TerminalText = loadable(() => import("./TerminalText"), {
 
 const Preview = props => {
   return (
-    <section className={classNames("mb-5", "mt-3", "pb-3")}>
+    <section className={classNames("mb-3", "mt-3", "pb-3", styles.preview)}>
       {" "}
       <h3 className={classNames("border-bottom", "mb-3", "pb-2")}>
         {props.name}

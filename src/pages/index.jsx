@@ -1,5 +1,5 @@
+import { Container } from "react-bootstrap"
 import classNames from "classnames"
-import Grid from "../components/Grid"
 import Hero from "../components/Hero"
 import Layout from "../components/Layout"
 import React from "react"
@@ -11,11 +11,11 @@ export default function Home() {
     <Layout>
       <SEO />
       <Hero />
-      <Grid>
+      <Container fluid>
         <main className={classNames("my-4", "py-5")}>
           <PreviewList />
         </main>
-      </Grid>
+      </Container>
     </Layout>
   )
 }
