@@ -32,7 +32,10 @@ const Navigation = () => {
       sticky="top"
       variant="dark"
     >
-      <Container className={classNames("px-3")} style={{ maxWidth: "760px" }}>
+      <Container
+        className={classNames("px-3")}
+        style={{ maxWidth: "var(--breakpoint-md)" }}
+      >
         <Navbar.Collapse
           className={classNames("mb-3", "mb-md-0")}
           id="basic-navbar-nav"

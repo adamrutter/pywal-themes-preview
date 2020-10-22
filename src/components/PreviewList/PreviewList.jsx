@@ -1,4 +1,4 @@
-import { Alert } from "react-bootstrap"
+import { Alert, Container } from "react-bootstrap"
 import { FilterContext } from "../../contexts/FilterContext"
 import { useStaticQuery, graphql } from "gatsby"
 import classNames from "classnames"
@@ -140,44 +140,46 @@ const PreviewList = () => {
   return (
     <div style={layout}>
       <noscript>
-        <Alert className={classNames("mb-5")} variant="warning">
-          <h2 className={classNames("h4", "mb-1")}>JavaScript not enabled</h2>
-          You need to enable JavaScript to use the filter functionality.
-        </Alert>
+        <Container>
+          <Alert className={classNames("mb-5")} variant="warning">
+            <h2 className={classNames("h4", "mb-1")}>JavaScript not enabled</h2>
+            You need to enable JavaScript to use the filter functionality.
+          </Alert>
+        </Container>
       </noscript>
       {/* Display potential error from regex */}
       {error ? (
-        <Alert variant="danger">
-          <h2 className={classNames("h4", "mb-1")}>Error</h2>
-          {errorMessage}
-        </Alert>
+        <Container>
+          <Alert variant="danger">
+            <h2 className={classNames("h4", "mb-1")}>Error</h2>
+            {errorMessage}
+          </Alert>
+        </Container>
       ) : (
         Object.keys(filteredThemes).map(category => (
           <div
-            className={classNames("mb-5", "px-2", styles.previewsContainer)}
+            className={classNames("mb-5", "px-md-2", styles.previewsContainer)}
             key={category}
           >
             <h2 className={classNames("h1", "mb-4")} id={category}>
               {category.charAt(0).toUpperCase() + category.slice(1)}
             </h2>
-            <div className={classNames()}>
-              {filteredThemes[category].length > 0 ? (
-                filteredThemes[category].map(theme => {
-                  return (
-                    <Preview
-                      colors={{ ...theme.node.colors, ...theme.node.special }}
-                      key={theme.node.parent.id}
-                      name={theme.node.parent.name}
-                    />
-                  )
-                })
-              ) : (
-                <div className={classNames("mt-n2", "text-muted")}>
-                  No {category} themes found matching{" "}
-                  <code>{regex.toString()}</code>.
-                </div>
-              )}
-            </div>
+            {filteredThemes[category].length > 0 ? (
+              filteredThemes[category].map(theme => {
+                return (
+                  <Preview
+                    colors={{ ...theme.node.colors, ...theme.node.special }}
+                    key={theme.node.parent.id}
+                    name={theme.node.parent.name}
+                  />
+                )
+              })
+            ) : (
+              <div className={classNames("text-muted")}>
+                No {category} themes found matching{" "}
+                <code>{regex.toString()}</code>.
+              </div>
+            )}
           </div>
         ))
       )}
