@@ -1,9 +1,10 @@
 import { Alert } from "react-bootstrap"
-import { FilterContext } from "../contexts/FilterContext"
+import { FilterContext } from "../../contexts/FilterContext"
 import { useStaticQuery, graphql } from "gatsby"
 import classNames from "classnames"
-import Preview from "./Preview/Preview"
+import Preview from "../Preview"
 import React, { useContext, useEffect, useRef, useState } from "react"
+import styles from "./PreviewList.module.scss"
 
 const PreviewList = () => {
   const { allDarkJson: darkThemes, allLightJson: lightThemes } = useStaticQuery(
