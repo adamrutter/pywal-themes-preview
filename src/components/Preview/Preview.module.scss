@@ -111,16 +111,13 @@ $colors: (
     grid-template-rows: repeat(3, auto);
     word-break: normal;
 
-    @media screen and (min-width: 450px) {
+    @media only screen and (min-width: 550px) {
       grid-template-rows: repeat(2, auto);
     }
 
-    @media screen and (min-width: 800px) {
+    @media only screen and (min-width: 625px) {
+      grid-auto-columns: min-content;
       grid-template-rows: repeat(1, auto);
-    }
-
-    @media screen and (min-width: 1200px) {
-      display: block;
     }
 
     div {
