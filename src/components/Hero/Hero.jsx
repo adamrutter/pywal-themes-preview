@@ -2,14 +2,12 @@ import { ChatSquareTextFill } from "react-bootstrap-icons"
 import { Nav } from "react-bootstrap"
 import classNames from "classnames"
 import GithubIcon from "../../svg/github.inline.svg"
-import Grid from "../Grid"
 import React from "react"
 import styles from "./Hero.module.scss"
 
 const Hero = () => {
   return (
     <header className={classNames(styles.hero)}>
-      <Grid>
         <h1>
           <code className={classNames("text-white")}>
             {"> "}
@@ -60,7 +58,6 @@ const Hero = () => {
             Contact me
           </Nav.Link>
         </Nav>
-      </Grid>
     </header>
   )
 }

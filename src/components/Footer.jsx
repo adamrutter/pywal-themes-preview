@@ -1,5 +1,4 @@
 import classNames from "classnames"
-import Grid from "./Grid"
 import React from "react"
 
 const year = () => {
@@ -11,7 +10,6 @@ const Footer = () => {
     <footer
       className={classNames("bg-dark", "py-3", "text-center", "text-light")}
     >
-      <Grid>
         <div>
           © {year()}{" "}
           <a href="https://adamrutter.com" rel="noreferrer" target="_blank">
@@ -35,7 +33,6 @@ const Footer = () => {
             License
           </a>
         </div>
-      </Grid>
     </footer>
   )
 }
