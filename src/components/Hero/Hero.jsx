@@ -7,7 +7,7 @@ import styles from "./Hero.module.scss"
 
 const Hero = () => {
   return (
-    <header className={classNames("mb-5", styles.hero)}>
+    <header className={classNames("mb-5", "px-3", styles.hero)}>
       <h1>
         <code className={classNames("text-white")}>
           {"> "}
