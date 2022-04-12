@@ -27,7 +27,7 @@ const TerminalText = props => {
       <Line>
         {"> "}
         <span className={classNames("term_fg_color2")}>wal</span> --theme{" "}
-        {props.name}
+        {props.name} {props.category === "light" && "-l"}
       </Line>
       <Line>
         [
@@ -133,6 +133,7 @@ const TerminalText = props => {
 }
 
 TerminalText.propTypes = {
+  category: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
 }
 

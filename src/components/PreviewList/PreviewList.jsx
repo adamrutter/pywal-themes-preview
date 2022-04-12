@@ -169,6 +169,7 @@ const PreviewList = () => {
               filteredThemes[category].map(theme => {
                 return (
                   <Preview
+                    category={category}
                     colors={{ ...theme.node.colors, ...theme.node.special }}
                     key={theme.node.parent.id}
                     name={theme.node.parent.name}

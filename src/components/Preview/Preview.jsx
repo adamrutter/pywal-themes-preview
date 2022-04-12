@@ -63,7 +63,7 @@ const Preview = props => {
           }}
         >
           <code>
-            <TerminalText name={props.name} />
+            <TerminalText category={props.category} name={props.name} />
           </code>
         </pre>
       </section>
@@ -73,6 +73,7 @@ const Preview = props => {
 
 Preview.propTypes = {
   name: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
   colors: PropTypes.object.isRequired,
 }
 
