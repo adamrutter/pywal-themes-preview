@@ -11,13 +11,21 @@ $theme-colors: (
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins";
 
-$body-bg: hsl(0, 0%, 95%);
-$body-color: hsl(0, 0%, 25%);
+$body-bg: var(--body-bg);
+$body-color: var(--body-fg);
 
 $navbar-dark-toggler-border-color: transparent;
 
 html {
+  --body-bg: hsl(0, 0%, 95%);
+  --body-fg: hsl(0, 0%, 25%);
+
   font-size: 18px;
+
+  @media (prefers-color-scheme: dark) {
+    --body-bg: hsl(0, 0%, 15%);
+    --body-fg: hsl(0, 0%, 95%);
+  }
 }
 
 ::selection {

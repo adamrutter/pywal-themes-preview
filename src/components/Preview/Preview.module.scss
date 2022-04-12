@@ -43,6 +43,10 @@ $colors: (
     @media only screen and (min-width: 768px) {
       white-space: nowrap;
     }
+
+    @media (prefers-color-scheme: dark) {
+      border-bottom-color: hsla(0, 0%, 60%, 0.5) !important;
+    }
   }
 }
 
@@ -53,6 +57,10 @@ $colors: (
   margin-bottom: 0;
   overflow-x: hidden;
   padding: 2em;
+
+  @media (prefers-color-scheme: dark) {
+    border-color: hsla(0, 0%, 10%, 0.5);
+  }
 
   code {
     overflow-x: auto;

@@ -28,6 +28,15 @@ const Hero = () => {
           input in the navbar. Enjoy!
         </p>
       </div>
+      <div className={classNames("mx-auto", "my-5", "text-center", "small")}>
+        <p>
+          <strong>Note:</strong> The site doesn't work well with{" "}
+          <a href="https://github.com/darkreader/darkreader">Dark Reader</a>{" "}
+          (colour themes will likely end up wrong, or even illegible). The site
+          will follow your system's dark theme preference where appropriate, so
+          make sure you disable Dark Reader for this site.
+        </p>
+      </div>
 
       <Nav className={classNames("justify-content-center")}>
         <Nav.Link
